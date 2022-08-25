@@ -2,31 +2,36 @@ import { useContext } from "react";
 
 import { CartContext } from "../../contexts/cart.context";
 
-import Button from "../button/button.component";
+import "./checkout-item.styles.scss";
 
 const CheckoutItem = ({ cartItem }) => {
   const { imageUrl, name, price, quantity } = cartItem;
-  const { removeItemFromCart, addItemToCart } = useContext(CartContext);
+  const { removeItemFromCart, addItemToCart, cancelItemFromCart } =
+    useContext(CartContext);
 
-  const removeProductFromCart = () => removeItemFromCart(cartItem);
-  const addProductToCart = () => addItemToCart(cartItem);
+  const incrementProductHandler = () => addItemToCart(cartItem);
+  const decrementProductHandler = () => removeItemFromCart(cartItem);
+  const cancelProductHandler = () => cancelItemFromCart(cartItem);
 
   return (
     <div className="checkout-item-container">
-      <img src={imageUrl} alt={`${name}`} />
-      <div className="footer">
-        <span className="name">{name}</span>
-        <br />
-        <span onClick={addProductToCart}>increment</span>
-        <br />
-        <span onClick={removeProductFromCart}>decrement</span>
-        <br />
-        <span className="quantity">{quantity}</span>
-        <span className="price">{price}</span>
+      <div className="image-container">
+        <img src={imageUrl} alt={`${name}`} />
       </div>
-      <Button buttonType="inverted" onClick={removeProductFromCart}>
-        x
-      </Button>
+      <span className="name">{name}</span>
+      <span className="quantity">
+        <div className="arrow" onClick={decrementProductHandler}>
+          &#10094;
+        </div>
+        <span className="value">{quantity}</span>
+        <div className="arrow" onClick={incrementProductHandler}>
+          &#10095;
+        </div>
+      </span>
+      <span className="price">{price}</span>
+      <div className="remove-button" onClick={cancelProductHandler}>
+        &#10005;
+      </div>
     </div>
   );
 };
