@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithRedirect,
@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-} from "firebase/auth";
+} from 'firebase/auth';
 import {
   getFirestore,
   doc,
@@ -18,15 +18,15 @@ import {
   writeBatch,
   query,
   getDocs,
-} from "firebase/firestore";
+} from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCtri_ErgKKtSSyV3s9056LL9YchYa7KXg",
-  authDomain: "clothing-store-636c7.firebaseapp.com",
-  projectId: "clothing-store-636c7",
-  storageBucket: "clothing-store-636c7.appspot.com",
-  messagingSenderId: "1075373017073",
-  appId: "1:1075373017073:web:b0a10deeee63199a8c6650",
+  apiKey: 'AIzaSyCtri_ErgKKtSSyV3s9056LL9YchYa7KXg',
+  authDomain: 'clothing-store-636c7.firebaseapp.com',
+  projectId: 'clothing-store-636c7',
+  storageBucket: 'clothing-store-636c7.appspot.com',
+  messagingSenderId: '1075373017073',
+  appId: '1:1075373017073:web:b0a10deeee63199a8c6650',
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -34,7 +34,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 
 googleProvider.setCustomParameters({
-  prompt: "select_account",
+  prompt: 'select_account',
 });
 
 export const auth = getAuth();
@@ -55,11 +55,11 @@ export const addCollectionAndDocs = async (collectionKey, objectsToAdd) => {
   });
 
   await batch.commit();
-  console.log("done");
+  // console.log("done");
 };
 
 export const getCategoriesAndDocs = async () => {
-  const collectionRef = collection(db, "categories");
+  const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
@@ -78,7 +78,7 @@ export const createUserDocumentFromAuth = async (
 ) => {
   if (!userAuth) return;
 
-  const userDocRef = doc(db, "users", userAuth.uid);
+  const userDocRef = doc(db, 'users', userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
 
@@ -94,7 +94,8 @@ export const createUserDocumentFromAuth = async (
         ...additionalInformation,
       });
     } catch (error) {
-      console.log("error creating the user", error.message);
+      // console.log('error creating the user', error.message);
+      alert('error creating the user');
     }
   }
 
