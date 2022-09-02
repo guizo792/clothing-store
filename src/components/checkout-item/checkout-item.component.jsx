@@ -1,13 +1,15 @@
-import { useContext } from "react";
+import { useSelector } from 'react-redux';
 
-import { CartContext } from "../../contexts/cart.context";
+import {
+  removeItemFromCart,
+  addItemToCart,
+  cancelItemFromCart,
+} from '../../store/cart/cart.selector';
 
-import "./checkout-item.styles.scss";
+import './checkout-item.styles.scss';
 
 const CheckoutItem = ({ cartItem }) => {
   const { imageUrl, name, price, quantity } = cartItem;
-  const { removeItemFromCart, addItemToCart, cancelItemFromCart } =
-    useContext(CartContext);
 
   const incrementProductHandler = () => addItemToCart(cartItem);
   const decrementProductHandler = () => removeItemFromCart(cartItem);
