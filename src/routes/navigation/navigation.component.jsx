@@ -7,6 +7,9 @@ import CartIcon from '../../components/cart-icon/cart-icon.component';
 import { ReactComponent as CrwnLogo } from '../../assets/crwn.svg';
 
 import { selectCurrentUser } from '../../store/user/user.selector';
+import { selectIsCartOpen } from '../../store/cart/cart.selector';
+
+import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
 
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
@@ -19,7 +22,7 @@ import {
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
-  // const isCartOpen = useSelector((state) => state.cart.isCartOpen);
+  const isCartOpen = useSelector(selectIsCartOpen);
 
   // console.log(currentUser);
   return (
@@ -39,7 +42,7 @@ const Navigation = () => {
           )}
           <CartIcon />
         </NavLinksContainer>
-        {/* {isCartOpen && <CartDropdown />} */}
+        {isCartOpen && <CartDropdown />}
       </NavigationContainer>
       <Outlet />
     </Fragment>
