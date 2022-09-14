@@ -41,8 +41,10 @@ export function* signInWithEmail({ payload: { email, password } }) {
       email,
       password
     );
+    yield call(getSnapshotFromUserAuth, user);
   } catch (error) {
     yield put(signInFailed(error));
+    alert('Signing in failed, email or password are invalid');
   }
 }
 
@@ -73,6 +75,7 @@ export function* signUp({ payload: { email, password, displayName } }) {
       email,
       password
     );
+    yield createUserDocumentFromAuth(user, { displayName });
     yield put(signUpSuccess(user, { displayName }));
   } catch (error) {
     yield put(signUpFailed(error));

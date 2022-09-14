@@ -36,7 +36,7 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      dispatch(signInAuthUserWithEmailAndPassword(email, password));
+      dispatch(emailSignInStart(email, password));
       // console.log({ user });
       resetFormFields();
     } catch (error) {
