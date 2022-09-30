@@ -11,6 +11,8 @@
     height: 95%;
     object-fit: cover;
     margin-bottom: 5px;
+    border: 1px solid #0b1b2d;
+    border-radius: 5px;
   }
 
   button {
@@ -40,12 +42,15 @@
     font-size: 18px;
 
     .name {
+      font-size: 20px;
+      font-weight: 600;
       width: 90%;
       margin-bottom: 15px;
     }
 
     .price {
       width: 10%;
+      font-weight: 600;
     }
   }
 }
