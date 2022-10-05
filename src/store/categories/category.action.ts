@@ -1,8 +1,4 @@
-import {
-  CATEGORIES_ACTION_TYPES,
-  Category,
-  CategoryItem,
-} from './category.types';
+import { CATEGORIES_ACTION_TYPES, Category } from './category.types';
 
 import {
   createAction,
