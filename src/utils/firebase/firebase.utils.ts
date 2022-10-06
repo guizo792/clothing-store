@@ -20,6 +20,8 @@ import {
   getDocs,
 } from 'firebase/firestore';
 
+import { Category } from '../../store/categories/category.types';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyCtri_ErgKKtSSyV3s9056LL9YchYa7KXg',
   authDomain: 'clothing-store-636c7.firebaseapp.com',
@@ -45,7 +47,14 @@ export const signInWithGoogleRedirect = () =>
 
 export const db = getFirestore();
 
-export const addCollectionAndDocs = async (collectionKey, objectsToAdd) => {
+export type ObjectToAdd = {
+  title: string;
+};
+
+export const addCollectionAndDocs = async <T extends ObjectToAdd>(
+  collectionKey: string,
+  objectsToAdd: T[]
+): Promise<void> => {
   const batch = writeBatch(db);
   const collectionRef = collection(db, collectionKey);
 
@@ -58,12 +67,14 @@ export const addCollectionAndDocs = async (collectionKey, objectsToAdd) => {
   // console.log("done");
 };
 
-export const getCategoriesAndDocs = async () => {
+export const getCategoriesAndDocs = async (): Promise<Category[]> => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  return querySnapshot.docs.map(
+    (docSnapshot) => docSnapshot.data() as Category
+  );
 };
 
 export const createUserDocumentFromAuth = async (
