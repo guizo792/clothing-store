@@ -17,8 +17,9 @@ export const Body = styled.div`
   justify-content: center;
   border: 1px solid #fff;
   background-color: white;
-  opacity: 0.7;
+  opacity: 0.8;
   position: absolute;
+  border-radius: 7px;
 
   h2 {
     font-weight: bold;
