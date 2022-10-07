@@ -100,6 +100,17 @@ export const createUserDocumentFromAuth = async (
 
   const userSnapshot = await getDoc(userDocRef);
 
+  // let users: User[] = [];
+  // userSnapshot.forEach((userDoc) => {
+  //   users = [
+  //     ...users,
+  //     {
+  //       ...userDoc.data(),
+  //       id: userDoc.id,
+  //     },
+  //   ];
+  // });
+
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
