@@ -1,5 +1,6 @@
 import { CategoryItem } from '../categories/category.types';
 import {
+  Action,
   ActionWithPayload,
   createAction,
   withMatcher,
@@ -55,10 +56,7 @@ const cancelCartItem = (
 ): CartItem[] =>
   cartItems.filter((cartItem) => cartItem.id !== cartItemToCancel.id);
 
-export type SetIsCartOpen = ActionWithPayload<
-  CART_ACTION_TYPES.SET_IS_CART_OPEN,
-  boolean
->;
+export type SetIsCartOpen = Action<CART_ACTION_TYPES.SET_IS_CART_OPEN>;
 
 export type SetCartItems = ActionWithPayload<
   CART_ACTION_TYPES.SET_CART_ITEMS,
@@ -66,8 +64,7 @@ export type SetCartItems = ActionWithPayload<
 >;
 
 export const setIsCartOpen = withMatcher(
-  (boolean: boolean): SetIsCartOpen =>
-    createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, boolean)
+  (): SetIsCartOpen => createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN)
 );
 
 export const setCartItems = withMatcher(
