@@ -112,8 +112,9 @@ export const signOutStart = withMatcher(
   (): SignOutStart => createAction(USER_ACTION_TYPES.SIGN_OUT_START)
 );
 
-export const signOutSuccess = () =>
-  createAction(USER_ACTION_TYPES.SIGN_OUT_SUCCESS);
+export const signOutSuccess = withMatcher(
+  (): SignOutSuccess => createAction(USER_ACTION_TYPES.SIGN_OUT_SUCCESS)
+);
 
 export const signOutFailed = withMatcher(
   (error: Error): SignOutFailed =>
