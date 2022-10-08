@@ -6,8 +6,9 @@
   padding-top: 70px;
 }
 
-@media only screen and (max-width: 250px) {
+@media only screen and (max-width: 600px) {
   .authentication-container {
     flex-direction: column;
+    gap: 50px;
   }
 }
