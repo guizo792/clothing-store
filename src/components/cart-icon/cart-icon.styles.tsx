@@ -4,6 +4,11 @@ import { ReactComponent as ShoppingSvg } from '../../assets/shopping-bag.svg';
 export const ShoppingIcon = styled(ShoppingSvg)`
   width: 36px;
   height: 36px;
+
+  @media (max-width: 553px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const CartIconContainer = styled.div`
@@ -26,5 +31,10 @@ export const ItemCount = styled.span`
   font-size: 20px;
   font-weight: bold;
   bottom: 5px;
-  color: #891212;
+  color: #0066ff;
+
+  @media (max-width: 553px) {
+    font-size: 16px;
+    bottom: 8px;
+  }
 `;

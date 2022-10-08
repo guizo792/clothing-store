@@ -1,10 +1,10 @@
 body {
   margin: 0;
-  padding: 0 40px 40px 20px;
+  padding: 0 0 20px 0;
   font-family: 'Open Sans Condensed', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #cfdae6;
+  background-color: #eaeef3;
 }
 
 *::-webkit-scrollbar {
@@ -32,15 +32,18 @@ a {
   font-weight: bold;
   transition: all 0.3s;
   // color: #0B1B2D;
-
-  &::after {
-    content: '';
-    width: 0px;
-    height: 1px;
-    display: block;
-    background: #0b1b2d;
-    transition: 300ms;
+  @media (max-width: 553px) {
+    font-size: 16px;
   }
+
+  // &::after {
+  //   content: '';
+  //   width: 0px;
+  //   height: 1px;
+  //   display: block;
+  //   background: #0066ff;
+  //   transition: 300ms;
+  // }
 
   &:hover::after {
     width: 100%;
