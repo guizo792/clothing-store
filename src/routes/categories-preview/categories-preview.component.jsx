@@ -14,7 +14,7 @@ const CategoriesPreview = () => {
   const isLoading = useSelector(selectCategoriesIsLoading);
 
   return (
-    <Fragment>
+    <div className="category-preview-global-container">
       {isLoading ? (
         <Spinner />
       ) : (
@@ -25,7 +25,7 @@ const CategoriesPreview = () => {
           );
         })
       )}
-    </Fragment>
+    </div>
   );
 };
 

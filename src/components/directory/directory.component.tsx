@@ -1,5 +1,4 @@
 import { Key } from 'react';
-import { CategoryItem } from '../../store/categories/category.types';
 import DirectoryItem from '../directory-item/directory-item.component';
 
 import './directory.styles.scss';
