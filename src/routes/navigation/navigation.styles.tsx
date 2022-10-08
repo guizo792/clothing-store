@@ -10,6 +10,7 @@ export const NavigationContainer = styled.div`
   // background-color: #cfdae6dd;
   background-color: #ffffffcc;
   position: fixed;
+  top: 0;
   z-index: 99;
   padding: 20px 50px 64px;
 `;
@@ -35,14 +36,28 @@ export const NavLinkContainer = styled(Link)`
   cursor: pointer;
   border: 1px dashed #0b1b2d;
   border-radius: 5px;
-  @media (max-width: 553px) {
+  @media (max-width: 558px) {
     padding: 2px 0px;
     border: none;
   }
 
+  @media (max-width: 553px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 438px) {
+    font-size: 12px;
+  }
+  @media (max-width: 403px) {
+    font-size: 10px;
+  }
+
   &:hover {
     background-color: #0066ff23;
-    color: #0066ff;
-    border: 1px dashed #0066ffaa;
+
+    @media (min-width: 406px) {
+      color: #0066ff;
+      border: 1px dashed #0066ffaa;
+    }
   }
 `;

@@ -23,7 +23,10 @@
 
     .preview {
       display: grid;
-      grid-template-columns: repeat(auto-fill, 362.5px);
+      grid-template-columns: repeat(4, 1fr);
+      @media (max-width: 840px) {
+        grid-template-columns: repeat(auto-fill, 175px);
+      }
       column-gap: 20px;
       row-gap: 30px;
 
