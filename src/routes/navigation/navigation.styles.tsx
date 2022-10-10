@@ -45,13 +45,6 @@ export const NavLinkContainer = styled(Link)`
     font-size: 16px;
   }
 
-  @media (max-width: 438px) {
-    font-size: 12px;
-  }
-  @media (max-width: 403px) {
-    font-size: 10px;
-  }
-
   &:hover {
     background-color: #0066ff23;
 
