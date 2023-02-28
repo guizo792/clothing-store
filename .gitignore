@@ -13,6 +13,8 @@
 
 .env
 
+/src/dev-data
+
 # misc
 .DS_Store
 .env.local

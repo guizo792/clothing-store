@@ -5,6 +5,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #eaeef3;
+
+  @media screen and (max-width: 800px) {
+    padding: 0 0 10px 0;
+  }
 }
 
 *::-webkit-scrollbar {
